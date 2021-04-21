@@ -8,6 +8,29 @@ class User(db.Model) :
     auth           = db.Column(db.String(100))
     email          = db.Column(EmailType, unique=True, nullable=False)
     nickname       = db.Column(db.String(100), nullable=False)
+    @property
+    def is_authenticated(self):
+        return True
+    @property
+    def is_admin(self) :
+        if self.auth == u'admin' :
+            return True
+        else :
+            return False
+    @property
+    def is_active(self):
+        return True
+
+    @property
+    def is_anonymous(self):
+        return False
+
+    def get_id(self):
+        return self.id
+
+    # Required for administrative interface
+    def __unicode__(self):
+        return self.username
 
 class JobSkill(db.Model) :
     __tablename__ = "jobskill"

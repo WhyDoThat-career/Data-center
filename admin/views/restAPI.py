@@ -1,7 +1,10 @@
 from admin import app,db
 from flask import send_from_directory,render_template
 from flask import request, redirect, url_for, session
-from flask_login import logout_user,current_user
+from flask_login import logout_user,current_user,login_user
+from admin.model.mysql import User
+from werkzeug.security import generate_password_hash, check_password_hash
+import datetime
 import json
 
 def checkemail():
