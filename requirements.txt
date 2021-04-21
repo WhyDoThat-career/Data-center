@@ -1,5 +1,12 @@
+flask
+flask-admin
+Flask-BabelEx
+flask-cors
 sqlalchemy==1.3.23
 sqlalchemy_utils
+flask-migrate
+flask-sqlalchemy
+flask-login
 pymongo
 pymysql
 alembic
