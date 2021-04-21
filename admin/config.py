@@ -12,13 +12,13 @@ FLASK_ADMIN_SWATCH = 'readable'
 ADMIN_KEY = 'qekjqihbbjbjksknqnqklajdflkjsdivlkqjlkwjkljadslfkjibalksnf'
 SECRET_KEY = 'data-center_secretkey'
 
-db = load_key(key_file='../keys/aws_dc_sql_key.json')
+db = load_key(key_file='./keys/aws_dc_sql_key.json')
 database = "career-center"
 MYSQL_URI = f"mysql+pymysql://{db['user']}:{db['password']}@localhost:{db['port']}/{database}?charset=utf8mb4"
 SQLALCHEMY_ECHO = True
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-mongo = load_key(key_file='../keys/aws_dc_mongo_key.json')
+mongo = load_key(key_file='./keys/aws_dc_mongo_key.json')
 MONGO_CONN = pymongo.MongoClient(f"mongodb://{mongo['host']}:{mongo['port']}",
                                     username=mongo['user'],password=mongo['password'])
 

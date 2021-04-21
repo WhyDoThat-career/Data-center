@@ -5,7 +5,6 @@ from flask_cors import CORS
 from flask_login import LoginManager
 from flask_migrate import Migrate,MigrateCommand
 from flask_script import Manager
-from oauthlib.oauth2 import WebApplicationClient
 import os
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 

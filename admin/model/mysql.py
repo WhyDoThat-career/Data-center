@@ -8,38 +8,37 @@ class User(db.Model) :
     auth           = db.Column(db.String(100))
     email          = db.Column(EmailType, unique=True, nullable=False)
     nickname       = db.Column(db.String(100), nullable=False)
-    resume    = db.relationship('Resume')
 
-class JobSkill(Base) :
+class JobSkill(db.Model) :
     __tablename__ = "jobskill"
     id  = db.Column(db.Integer, primary_key=True)
     name   = db.Column(db.String(200))
 
-class JobSector(Base) :
+class JobSector(db.Model) :
     __tablename__ = "jobsector"
     id = db.Column(db.Integer, primary_key=True)
     name  = db.Column(db.String(200))
 
-class Platform(Base) :
+class Platform(db.Model) :
     __tablename__ = "platform"
     id = db.Column(db.Integer, primary_key=True)
     name  = db.Column(db.String(200))
 
-class Click(Base) :
+class Click(db.Model) :
     __tablename__ = "click"
     id     = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.String(32))
     recruit_id = db.Column(db.Integer)
     datetime = db.Column(db.DateTime)
 
-class Bookmark(Base) :
+class Bookmark(db.Model) :
     __tablename__ = "bookmark"
     id     = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.String(32))
     recruit_id = db.Column(db.Integer)
     datetime = db.Column(db.DateTime)
 
-class Recurit_apply(Base) :
+class Recurit_apply(db.Model) :
     __tablename__ = "recurite_apply"
     id     = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.String(32))
@@ -48,21 +47,21 @@ class Recurit_apply(Base) :
     platform = db.relationship("Platform", backref=db.backref("bookmark", order_by=id))
     datetime = db.Column(db.DateTime)
 
-class Recurit_stack(Base) :
+class Recurit_stack(db.Model) :
     __tablename__ = "recurite_stack"
     id     = db.Column(db.Integer, primary_key=True)
     recruit_id = db.Column(db.Integer)
     skill_id = db.Column(db.Integer,db.ForeignKey('jobskill.id'))
     skill = db.relationship("JobSkill", backref=db.backref("recurit_skill", order_by=id))
 
-class Filtering(Base) :
+class Filtering(db.Model) :
     __tablename__ = "filtering"
     id     = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.String(32))
     filtering = db.Column(db.String(100))
     datetime = db.Column(db.DateTime)
 
-class Resume_sector(Base) :
+class Resume_sector(db.Model) :
     __tablename__ = "resume_sector"
     id     = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.String(32))
@@ -70,7 +69,7 @@ class Resume_sector(Base) :
     sector = db.relationship("JobSector", backref=db.backref("resume_sector", order_by=id))
     datetime = db.Column(db.DateTime)
 
-class Resume_skill(Base) :
+class Resume_skill(db.Model) :
     __tablename__ = "resume_skill"
     id     = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.String(32))

@@ -1,5 +1,6 @@
 from admin import app, db
-from admin.control.user_mgmt import registerAdmin
+from admin.model.mysql import User
+from werkzeug.security import generate_password_hash, check_password_hash
 
 def registerAdmin():
     if db.session.query(User).filter_by(email='admin@admin').first() is None :
@@ -22,4 +23,4 @@ db.create_all()
 registerAdmin()
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port='8000',debug=True)
+    app.run(host='0.0.0.0', port='8888',debug=True)

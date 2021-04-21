@@ -139,6 +139,7 @@ class RegacyJobDetailAdmin(sqla.ModelView) :
         try :
             return current_user.is_admin
         except :
+            False
 
 class IndexAdmin(admin.AdminIndexView) :
     @expose('/')
@@ -157,14 +158,14 @@ admin = admin.Admin(app,index_view=IndexAdmin(), name ='Data-center Admin page',
 
 admin.add_view(UserAdmin(User,db.session))
 admin.add_view(sqla.ModelView(Filtering,db.session))
-admin.add_view(sqla.ModelView(Click,db.session),category='RecuritLog')
-admin.add_view(sqla.ModelView(Bookmark,db.session),category='RecuritLog')
-admin.add_view(sqla.ModelView(Recurit_apply,db.session),category='RecuritLog')
-admin.add_view(sqla.ModelView(Resume_sector,db.session),category='ResumeLog')
-admin.add_view(sqla.ModelView(Resume_skill,db.session),category='ResumeLog')
-admin.add_view(RegacyJobDetailAdmin(RegacyJobDetail,db.session),category='JobData')
-admin.add_view(sqla.ModelView(JobSector,db.session),category='JobData')
-admin.add_view(sqla.ModelView(JobSector,db.session),category='JobData')
-admin.add_view(sqla.ModelView(Platform,db.session),category='JobData')
-admin.add_view(sqla.ModelView(Recurit_stack,db.session),category='JobData')
+admin.add_view(sqla.ModelView(Click,db.session,category='RecuritLog'))
+admin.add_view(sqla.ModelView(Bookmark,db.session,category='RecuritLog'))
+admin.add_view(sqla.ModelView(Recurit_apply,db.session,category='RecuritLog'))
+admin.add_view(sqla.ModelView(Resume_sector,db.session,category='ResumeLog'))
+admin.add_view(sqla.ModelView(Resume_skill,db.session,category='ResumeLog'))
+admin.add_view(RegacyJobDetailAdmin(RegacyJobDetail,db.session,category='JobData'))
+admin.add_view(sqla.ModelView(JobSector,db.session,category='JobData'))
+admin.add_view(sqla.ModelView(JobSkill,db.session,category='JobData'))
+admin.add_view(sqla.ModelView(Platform,db.session,category='JobData'))
+admin.add_view(sqla.ModelView(Recurit_stack,db.session,category='JobData'))
 admin.add_link(MenuLink(name='Logout', url='/logout', category='Links'))

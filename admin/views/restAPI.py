@@ -1,8 +1,8 @@
-from admin import app
+from admin import app,db
 from flask import send_from_directory,render_template
 from flask import request, redirect, url_for, session
 from flask_login import logout_user,current_user
-import requests, json
+import json
 
 def checkemail():
     email = request.form["email"]
