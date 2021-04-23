@@ -154,7 +154,7 @@ class IndexAdmin(admin.AdminIndexView) :
             else :
                 return render_template('error-admin.html')
 
-admin = admin.Admin(app,index_view=IndexAdmin(), name ='Data-center Admin page', template_mode='bootstrap4')
+admin = admin.Admin(app,index_view=IndexAdmin(), name ='Data-center Admin page', template_mode='bootstrap3')
 
 admin.add_view(UserAdmin(User,db.session))
 admin.add_view(sqla.ModelView(Filtering,db.session))

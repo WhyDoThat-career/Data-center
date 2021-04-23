@@ -14,7 +14,7 @@ SECRET_KEY = 'data-center_secretkey'
 
 db = load_key(key_file='./keys/aws_dc_sql_key.json')
 database = "career-center"
-MYSQL_URI = f"mysql+pymysql://{db['user']}:{db['password']}@localhost:{db['port']}/{database}?charset=utf8mb4"
+SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{db['user']}:{db['password']}@{db['host']}:{db['port']}/{database}?charset=utf8mb4"
 SQLALCHEMY_ECHO = True
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
