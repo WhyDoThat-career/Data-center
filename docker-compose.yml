@@ -30,7 +30,6 @@ services: # 이 항목 밑에 실행하려는 컨테이너 들을 정의
   flask :
     build: ~/Data-center
     container_name: flask-center
-    restart : always
     ports :
       - "8888:8888"
     volumes :

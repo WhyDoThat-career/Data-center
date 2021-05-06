@@ -66,8 +66,6 @@ class Recurit_apply(db.Model) :
     id     = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.String(32))
     recruit_id = db.Column(db.Integer)
-    platform_id = db.Column(db.Integer,db.ForeignKey('platform.id'))
-    platform = db.relationship("Platform", backref=db.backref("bookmark", order_by=id))
     datetime = db.Column(db.DateTime)
 
 class Recurit_stack(db.Model) :
