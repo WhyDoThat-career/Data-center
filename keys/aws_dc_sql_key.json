@@ -1,7 +1,0 @@
-{
-    "name" : "mysql" ,
-    "host" : "mysql-center",
-    "port" : "3306",
-    "user" : "root",
-    "password" : "root"
-}
