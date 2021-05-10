@@ -9,8 +9,9 @@ def load_key(key_file) :
 
 FLASK_ADMIN_SWATCH = 'readable'
 
-ADMIN_KEY = 'qekjqihbbjbjksknqnqklajdflkjsdivlkqjlkwjkljadslfkjibalksnf'
-SECRET_KEY = 'data-center_secretkey'
+flask_key = load_key(key_file,'./keys/flask_secret.json')
+ADMIN_KEY = flask_key['admin_key']
+SECRET_KEY = flask_key['secret_key']
 
 db = load_key(key_file='./keys/aws_dc_sql_key.json')
 database = "career-center"
